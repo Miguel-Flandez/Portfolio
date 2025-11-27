@@ -14,7 +14,7 @@
   --font-stack-sans-notch: "Stack Sans Notch", sans-serif;
 }
 *{
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 body{
   background-color: #1a1a1a;
