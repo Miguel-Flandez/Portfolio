@@ -7,6 +7,7 @@ export default function Home() {
 
   const intervalRef = useRef();
   const [isMax, setIsMax] = useState(false)
+  const [terminal, setTerminal] = useState(false)
   const [caret, setCaret] = useState(true)
 
   useEffect(()=>{
@@ -44,20 +45,21 @@ export default function Home() {
 
             <span className="text-white font-mono">
             <span className="font-bold">Front-End Web Developer </span>
-            specializing in React.
+            specializing in React. <span className={`${terminal ? 'hidden' : '' } text-white font-mono cursor-pointer hover:underline hover:text-[#43d5db]`} onClick={()=>setTerminal(prev=>!prev)}>Click for more Details</span>
             </span>
+            
 
-            <div id='summary' className={`${isMax ? 'w-screen h-screen fixed top-0 left-0 z-20':'relative'} bg-black rounded-sm  text-white font-mono`}>
+            {terminal && <div id='summary' className={`${isMax ? 'w-screen h-screen fixed top-0 left-0 z-20':'relative'} bg-black rounded-sm  text-white font-mono`}>
               <div className='flex gap-1 absolute right-1 top-1'>
-                <i className="fa-regular fa-window-minimize"></i>
-                <i className="fa-regular fa-window-maximize" onClick={()=>setIsMax(prev=>!prev)}></i>
-                <i className="fa-solid fa-xmark"></i>
+                {isMax && <i className="fa-regular fa-window-minimize hover:text-[#e1cb7e]" onClick={()=>setIsMax(prev=>!prev)}></i>}
+                {!isMax && <i className="fa-regular fa-window-maximize hover:text-[#e1cb7e]" onClick={()=>setIsMax(prev=>!prev)}></i>}
+                <i className="fa-solid fa-xmark hover:text-[#e1cb7e]" onClick={()=>{setTerminal(false); setIsMax(false)}}></i>
               </div>
 
               <div className='flex flex-col gap-[1vw] m-[1vw] text-[#e1cb7e]'>
                 <div className='flex flex-col'>
                   <span>&gt; Miguel.contacts</span>
-                  <span span>["<a className='hover:underline text-[#43d5db]'  href='https://www.facebook.com/miguel.flandez.9659/'>Facebook</a>", "<a className='hover:underline text-[#43d5db]' href='https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/'>LinkedIn</a>", "<a className='hover:underline text-[#43d5db]' href='https://github.com/Miguel-Flandez'>Github</a>", "isaiahmiguelflandez@gmail.com"]</span>
+                  <span span>["<a className='hover:underline text-[#43d5db]' target='_blank'  href='https://www.facebook.com/miguel.flandez.9659/'>Facebook</a>", "<a className='hover:underline text-[#43d5db]' target='_blank' href='https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/'>LinkedIn</a>", "<a className='hover:underline text-[#43d5db]' target='_blank' href='https://github.com/Miguel-Flandez'>Github</a>", "isaiahmiguelflandez@gmail.com"]</span>
                 </div>
 
                 <div className='flex flex-col'>
@@ -82,7 +84,7 @@ export default function Home() {
 
                 <div className="relative w-full">
                   <span className='absolute left-0'>&gt;</span>
-                  <textarea className='outline-none border-none resize-none overflow-hidden w-full pl-[1vw] max-md:pl-[2vw] max-sm:pl-[3vw]'/>
+                  <textarea className={`${isMax ? 'h-screen' : '' } outline-none border-none resize-none overflow-hidden w-full pl-[1vw] max-md:pl-[2vw] max-sm:pl-[3vw]`}/>
                 </div>
                 
                 
@@ -91,20 +93,42 @@ export default function Home() {
                 
               </div>
               
-            </div>
+            </div>}
 
             <div id="tech-stack" className='flex items-center justify-between text-white max-lg:flex-col max-lg:gap-[1vw]'>
               
-                <span className='font-mono text-white text-2xl'>Tech Stack: </span>
+              
+              <span className='font-mono text-white text-xl border-white'>Tech Stack</span>
+              
+              
 
-              
-              
-              <div className='flex gap-[8vw]  text-4xl'>
-                  <i class="fa-brands fa-html5"></i>
-                  <i class="fa-brands fa-css3-alt"></i>
-                  <i class="fa-brands fa-square-js"></i>
-                  <i className="fa-brands fa-react"></i>
-                  <i class="fa-brands fa-vuejs"></i>
+              <div className='flex gap-[8vw] text-4xl font-mono'>
+                  <div className='flex flex-col items-center'>
+                    <i class="fa-brands fa-html5"></i>
+                    <span className='text-sm'>HTML</span>
+                  </div>
+                  
+                  <div className='flex flex-col items-center'>
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <span className='text-sm'>CSS</span>
+                  </div>
+
+                  <div className='flex flex-col items-center'>
+                    <i class="fa-brands fa-square-js"></i>
+                    <span className='text-sm'>JavaScript</span>
+                  </div>
+                  
+                  <div className='flex flex-col items-center'>
+                    <i className="fa-brands fa-react"></i>
+                    <span className='text-sm'>React.js</span>
+                  </div>
+                  
+
+                  <div className='flex flex-col items-center'>
+                    <i class="fa-brands fa-vuejs"></i>
+                    <span className='text-sm'>Vue.js</span>
+                  </div>
+                  
               </div>
 
         
@@ -119,14 +143,16 @@ export default function Home() {
         <nav id="showcase"></nav>
         <div className='flex gap-[2vw] items-center'>
           {/* <div>&lt;</div>  */}
-              <div id="projects" className="flex flex-col w-[60vw] overflow-hidden">
+              <div id="projects" className="flex flex-col w-[60vw] overflow-hidden gap-[10vh]">
                 <div className="flex gap-1">
                   <span className="font-bold font-stack-sans-notch text-3xl text-white">&gt; Projects</span>
                   <span className={`${caret ? 'text-3xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
                 </div>
                   
                   <div id="projects-container" className="flex justify-evenly flex-nowrap">
-                      <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
+                      <a href='https://pokedex-gamma-ruby.vercel.app/' target='_blank'><Project name="Pokedex" description="A simple Pokédex web app built with React and the PokéAPI.
+                      It fetches and displays Pokémon data like names, sprites, and details." thumbnail={pokedexThumbnail}
+                      /></a>
                       <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
                       <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
                   </div>
@@ -137,10 +163,10 @@ export default function Home() {
 
         <nav id="contacts"></nav>
         <div  className='flex flex-col gap-[2vw]'>
-          <div id="sm-icons" className='flex justify-between'>
-            <a href="https://www.facebook.com/miguel.flandez.9659/"><i className="fa-brands fa-facebook text-white"></i></a>
-            <a href="https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/"><i className="fa-brands fa-square-linkedin text-white"></i></a>
-            <a href="https://github.com/Miguel-Flandez"><i className="fa-brands fa-github text-white"></i></a>
+          <div id="sm-icons" className='flex justify-evenly'>
+            <a target='_blank' href="https://www.facebook.com/miguel.flandez.9659/"><i className="fa-brands fa-facebook text-white"></i></a>
+            <a target='_blank' href="https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/"><i className="fa-brands fa-square-linkedin text-white"></i></a>
+            <a target='_blank' href="https://github.com/Miguel-Flandez"><i className="fa-brands fa-github text-white"></i></a>
           </div>
           
           
