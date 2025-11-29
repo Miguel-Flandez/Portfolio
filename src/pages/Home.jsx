@@ -5,10 +5,11 @@ import { useEffect, useRef, useState } from 'react'
 
 export default function Home() {
 
-  const intervalRef = useRef();
+  const intervalRef = useRef(null);
   const [isMax, setIsMax] = useState(false)
   const [terminal, setTerminal] = useState(false)
   const [caret, setCaret] = useState(true)
+
 
   useEffect(()=>{
     if(isMax){
@@ -20,13 +21,17 @@ export default function Home() {
 
   useEffect(()=>{
     
+    const timeout = setTimeout(() => {
 
-    intervalRef.current = setInterval(() => {
-        setCaret(prev=>!prev)
-        console.log(caret)
-    }, 500);
+      intervalRef.current = setInterval(() => {
+          setCaret(prev=>!prev)
+      }, 500);
+    }, 1400);
 
-    return () => clearInterval(intervalRef.current)
+    return () => {
+      clearTimeout(timeout)
+      clearInterval(intervalRef.current)
+    }
   }, [])
   
   return(
@@ -37,23 +42,39 @@ export default function Home() {
 
         <nav id='intro' class='absolute top-0' ></nav>
         <div className='flex flex-col gap-[10vh] w-[60vw] '>
-            <div className='flex gap-1'>
-              <span className="font-bold text-3xl text-white font-stack-sans-notch">&gt; Miguel Flandez</span>
+            <div id='terminal' className='flex gap-1'>
+              <span className="font-bold text-3xl text-white font-stack-sans-notch overflow-hidden whitespace-nowrap type-intro">
+                
+                  &gt; <span className="type-name">M</span>
+                  <span className="type-name">i</span>
+                  <span className="type-name">g</span>
+                  <span className="type-name">u</span>
+                  <span className="type-name">e</span>
+                  <span className="type-name">l</span> <span className="type-name">F</span>
+                  <span className="type-name">l</span>
+                  <span className="type-name">a</span>
+                  <span className="type-name">n</span>
+                  <span className="type-name">d</span>
+                  <span className="type-name">e</span>
+                  <span className="type-name">z</span>
+                
+                
+              </span>
+
               <span className={`${caret ? 'text-3xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
             </div>
             
 
-            <span className="text-white font-mono">
+            <span  className="text-white font-mono" >
             <span className="font-bold">Front-End Web Developer </span>
-            specializing in React. <span className={`${terminal ? 'hidden' : '' } text-white font-mono cursor-pointer hover:underline hover:text-[#43d5db]`} onClick={()=>setTerminal(prev=>!prev)}>Click for more Details</span>
+            specializing in React. <a className={`${terminal ? 'hidden' : '' } text-white font-mono cursor-pointer hover:underline hover:text-[#43d5db]`} onClick={()=>setTerminal(prev=>!prev)} href='#terminal' >Click for more Details</a>
             </span>
             
-
-            {terminal && <div id='summary' className={`${isMax ? 'w-screen h-screen fixed top-0 left-0 z-20':'relative'} bg-black rounded-sm  text-white font-mono`}>
+            {terminal && <div className={`${isMax ? 'w-screen h-screen fixed top-0 left-0 z-20':'relative'} bg-black rounded-sm  text-white font-mono`}>
               <div className='flex gap-1 absolute right-1 top-1'>
                 {isMax && <i className="fa-regular fa-window-minimize hover:text-[#e1cb7e]" onClick={()=>setIsMax(prev=>!prev)}></i>}
                 {!isMax && <i className="fa-regular fa-window-maximize hover:text-[#e1cb7e]" onClick={()=>setIsMax(prev=>!prev)}></i>}
-                <i className="fa-solid fa-xmark hover:text-[#e1cb7e]" onClick={()=>{setTerminal(false); setIsMax(false)}}></i>
+                <a href="#intro" className='leading-none'><i className="fa-solid fa-xmark hover:text-[#e1cb7e]" onClick={()=>{setTerminal(false); setIsMax(false)}}></i></a> 
               </div>
 
               <div className='flex flex-col gap-[1vw] m-[1vw] text-[#e1cb7e]'>
@@ -145,12 +166,21 @@ export default function Home() {
           {/* <div>&lt;</div>  */}
               <div id="projects" className="flex flex-col w-[60vw] overflow-hidden gap-[10vh]">
                 <div className="flex gap-1">
-                  <span className="font-bold font-stack-sans-notch text-3xl text-white">&gt; Projects</span>
+                  <span className="font-bold font-stack-sans-notch text-3xl text-white overflow-hidden whitespace-nowrap">
+                    &gt; <span className='type-projects'>P</span>
+                    <span className='type-projects'>r</span>
+                    <span className='type-projects'>o</span>
+                    <span className='type-projects'>j</span>
+                    <span className='type-projects'>e</span>
+                    <span className='type-projects'>c</span>
+                    <span className='type-projects'>t</span>
+                    <span className='type-projects'>s</span>
+                  </span>
                   <span className={`${caret ? 'text-3xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
                 </div>
                   
                   <div id="projects-container" className="flex justify-evenly flex-nowrap">
-                      <a href='https://pokedex-gamma-ruby.vercel.app/' target='_blank'><Project name="Pokedex" description="A simple Pokédex web app built with React and the PokéAPI.
+                      <a href='https://pokedex-gamma-ruby.vercel.app/' target='_blank'><Project name="Pokedex" description="A Pokédex web app built with React and the PokéAPI.
                       It fetches and displays Pokémon data like names, sprites, and details." thumbnail={pokedexThumbnail}
                       /></a>
                       <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
