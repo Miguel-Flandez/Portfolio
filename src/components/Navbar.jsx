@@ -5,7 +5,7 @@ export default function Navbar(){
     return(
         <nav className="flex items-center justify-between text-white px-[5vw] py-[2vh] fixed z-10 w-screen bg-[#1a1a1a]">
             <div>
-                <span className="text-2xl font-sixtyfour ">IMF</span>
+                <span className="text-2xl font-sixtyfour cursor-pointer">IMF</span>
             </div>
 
             <div className="flex gap-[20vw] font-bold">
