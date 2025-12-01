@@ -125,28 +125,28 @@ export default function Home() {
 
               <div className='flex gap-[8vw] text-4xl font-mono'>
                   <div className='flex flex-col items-center'>
-                    <i class="fa-brands fa-html5"></i>
+                    <i class="fa-brands fa-html5 hover:text-[#e4522c]"></i>
                     <span className='text-sm'>HTML</span>
                   </div>
                   
                   <div className='flex flex-col items-center'>
-                    <i class="fa-brands fa-css3-alt"></i>
+                    <i class="fa-brands fa-css3-alt hover:text-[#2c52e4]"></i>
                     <span className='text-sm'>CSS</span>
                   </div>
 
                   <div className='flex flex-col items-center'>
-                    <i class="fa-brands fa-square-js"></i>
+                    <i class="fa-brands fa-square-js hover:text-[#f0dc54]"></i>
                     <span className='text-sm'>JavaScript</span>
                   </div>
                   
                   <div className='flex flex-col items-center'>
-                    <i className="fa-brands fa-react"></i>
+                    <i className="fa-brands fa-react hover:text-[#5dc5dd] hover:animate-bounce animate-delat"></i>
                     <span className='text-sm'>React.js</span>
                   </div>
                   
 
                   <div className='flex flex-col items-center'>
-                    <i class="fa-brands fa-vuejs"></i>
+                    <i class="fa-brands fa-vuejs hover:text-[#46ba86]"></i>
                     <span className='text-sm'>Vue.js</span>
                   </div>
                   
@@ -179,10 +179,16 @@ export default function Home() {
                   <span className={`${caret ? 'text-3xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
                 </div>
                   
-                  <div id="projects-container" className="flex justify-evenly flex-nowrap">
-                      <a href='https://pokedex-gamma-ruby.vercel.app/' target='_blank'><Project name="Pokedex" description="A Pokédex web app built with React and the PokéAPI.
-                      It fetches and displays Pokémon data like names, sprites, and details." thumbnail={pokedexThumbnail}
+                  <div id="projects-container" className="flex justify-evenly flex-wrap">
+                      <a href='https://pokedex-gamma-ruby.vercel.app/' target='_blank'>
+                      <Project name="Pokedex" description="A Pokédex web app built with React and the PokéAPI.
+                      It fetches and displays Pokémon data like names, sprites, and details." 
+                      thumbnail={pokedexThumbnail} framework='react'
                       /></a>
+                      <Project name="Pomodoro" description="Work in short bursts to manage your focus and energy" 
+                      thumbnail={pokedexThumbnail} framework='react'/>
+                      <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
+                      <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
                       <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
                       <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
                   </div>
@@ -194,9 +200,9 @@ export default function Home() {
         <nav id="contacts"></nav>
         <div  className='flex flex-col gap-[2vw]'>
           <div id="sm-icons" className='flex justify-evenly'>
-            <a target='_blank' href="https://www.facebook.com/miguel.flandez.9659/"><i className="fa-brands fa-facebook text-white"></i></a>
-            <a target='_blank' href="https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/"><i className="fa-brands fa-square-linkedin text-white"></i></a>
-            <a target='_blank' href="https://github.com/Miguel-Flandez"><i className="fa-brands fa-github text-white"></i></a>
+            <a target='_blank' href="https://www.facebook.com/miguel.flandez.9659/"><i className="fa-brands fa-facebook text-white hover:text-[#415ca0]"  ></i></a>
+            <a target='_blank' href="https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/"><i className="fa-brands fa-square-linkedin text-white hover:text-[#0882bd]"></i></a>
+            <a target='_blank' href="https://github.com/Miguel-Flandez"><i className="fa-brands fa-github text-white hover:text-[#892c95]"></i></a>
           </div>
           
           
