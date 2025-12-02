@@ -8,7 +8,7 @@ export default function Navbar(){
                 <span className="text-2xl font-sixtyfour cursor-pointer">IMF</span>
             </div>
 
-            <div className="flex gap-[20vw] font-bold">
+            <div className="flex md:gap-[20vw] font-bold max-sm:text-xs">
                 <a href="#intro" className={`${NavbarStyles.navButton}`}>About</a>
                 <a href="#showcase" className={`${NavbarStyles.navButton}`} >Projects</a>
                 <a href="#contacts" className={`${NavbarStyles.navButton}`}>Contacts</a>

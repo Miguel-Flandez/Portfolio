@@ -1,6 +1,6 @@
 
 import {Project, Navbar} from '@/components'
-import { pokedexThumbnail } from '@/assets/images'
+import { pokedexThumbnail, pomodoroThumbnail } from '@/assets/images'
 import { useEffect, useRef, useState } from 'react'
 
 export default function Home() {
@@ -38,12 +38,12 @@ export default function Home() {
     <>
     <Navbar />
 
-      <div className="pt-[30vh] pb-[10vh] flex flex-col gap-[10vw] items-center">
+      <div className="pt-[30vh] pb-[10vh] flex flex-col gap-[10vw] max-sm:gap-[40vw] items-center">
 
         <nav id='intro' class='absolute top-0' ></nav>
         <div className='flex flex-col gap-[10vh] w-[60vw] '>
             <div id='terminal' className='flex gap-1'>
-              <span className="font-bold text-3xl text-white font-stack-sans-notch overflow-hidden whitespace-nowrap type-intro">
+              <span className="font-bold text-3xl max-sm:text-2xl text-white font-stack-sans-notch overflow-hidden whitespace-nowrap type-intro">
                 
                   &gt; <span className="type-name">M</span>
                   <span className="type-name">i</span>
@@ -61,7 +61,7 @@ export default function Home() {
                 
               </span>
 
-              <span className={`${caret ? 'text-3xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
+              <span className={`${caret ? 'text-3xl max-sm:text-2xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
             </div>
             
 
@@ -70,14 +70,14 @@ export default function Home() {
             specializing in React. <a className={`${terminal ? 'hidden' : '' } text-white font-mono cursor-pointer hover:underline hover:text-[#43d5db]`} onClick={()=>setTerminal(prev=>!prev)} href='#terminal' >Click for more Details</a>
             </span>
             
-            {terminal && <div className={`${isMax ? 'w-screen h-screen fixed top-0 left-0 z-20':'relative'} bg-black rounded-sm  text-white font-mono`}>
+            {terminal && <div className={`${isMax ? 'w-screen h-screen fixed top-0 left-0 z-20':'relative'} bg-black rounded-sm  text-white font-mono max-sm:text-[11px]`}>
               <div className='flex gap-1 absolute right-1 top-1'>
                 {isMax && <i className="fa-regular fa-window-minimize hover:text-[#e1cb7e]" onClick={()=>setIsMax(prev=>!prev)}></i>}
                 {!isMax && <i className="fa-regular fa-window-maximize hover:text-[#e1cb7e]" onClick={()=>setIsMax(prev=>!prev)}></i>}
                 <a href="#intro" className='leading-none'><i className="fa-solid fa-xmark hover:text-[#e1cb7e]" onClick={()=>{setTerminal(false); setIsMax(false)}}></i></a> 
               </div>
 
-              <div className='flex flex-col gap-[1vw] m-[1vw] text-[#e1cb7e]'>
+              <div className='flex flex-col gap-[1vw] m-[1vw] max-sm:m-[3vw] text-[#e1cb7e]'>
                 <div className='flex flex-col'>
                   <span>&gt; Miguel.contacts</span>
                   <span span>["<a className='hover:underline text-[#43d5db]' target='_blank'  href='https://www.facebook.com/miguel.flandez.9659/'>Facebook</a>", "<a className='hover:underline text-[#43d5db]' target='_blank' href='https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/'>LinkedIn</a>", "<a className='hover:underline text-[#43d5db]' target='_blank' href='https://github.com/Miguel-Flandez'>Github</a>", "isaiahmiguelflandez@gmail.com"]</span>
@@ -119,11 +119,11 @@ export default function Home() {
             <div id="tech-stack" className='flex items-center justify-between text-white max-lg:flex-col max-lg:gap-[1vw]'>
               
               
-              <span className='font-mono text-white text-xl border-white'>Tech Stack</span>
+              <span className='font-mono text-white text-xl max-lg:hidden border-white'>Tech Stack</span>
               
               
 
-              <div className='flex gap-[8vw] text-4xl font-mono'>
+              <div className='flex md:gap-[8vw] max-sm:gap-[4vw] text-4xl max-sm:text-lg font-mono'>
                   <div className='flex flex-col items-center'>
                     <i class="fa-brands fa-html5 hover:text-[#e4522c]"></i>
                     <span className='text-sm'>HTML</span>
@@ -140,7 +140,7 @@ export default function Home() {
                   </div>
                   
                   <div className='flex flex-col items-center'>
-                    <i className="fa-brands fa-react hover:text-[#5dc5dd] hover:animate-bounce animate-delat"></i>
+                    <i className="fa-brands fa-react hover:text-[#5dc5dd] hover:animate-pulse"></i>
                     <span className='text-sm'>React.js</span>
                   </div>
                   
@@ -166,7 +166,7 @@ export default function Home() {
           {/* <div>&lt;</div>  */}
               <div id="projects" className="flex flex-col w-[60vw] overflow-hidden gap-[10vh]">
                 <div className="flex gap-1">
-                  <span className="font-bold font-stack-sans-notch text-3xl text-white overflow-hidden whitespace-nowrap">
+                  <span className="font-bold font-stack-sans-notch text-3xl max-sm:text-2xl text-white overflow-hidden whitespace-nowrap">
                     &gt; <span className='type-projects'>P</span>
                     <span className='type-projects'>r</span>
                     <span className='type-projects'>o</span>
@@ -176,20 +176,19 @@ export default function Home() {
                     <span className='type-projects'>t</span>
                     <span className='type-projects'>s</span>
                   </span>
-                  <span className={`${caret ? 'text-3xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
+                  <span className={`${caret ? 'text-3xl max-sm:text-2xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
                 </div>
                   
-                  <div id="projects-container" className="flex justify-evenly flex-wrap">
+                  <div id="projects-container" className="flex justify-evenly flex-wrap max-lg:flex-col max-sm:gap-[1vw]">
                       <a href='https://pokedex-gamma-ruby.vercel.app/' target='_blank'>
-                      <Project name="Pokedex" description="A Pokédex web app built with React and the PokéAPI.
-                      It fetches and displays Pokémon data like names, sprites, and details." 
-                      thumbnail={pokedexThumbnail} framework='react'
-                      /></a>
-                      <Project name="Pomodoro" description="Work in short bursts to manage your focus and energy" 
-                      thumbnail={pokedexThumbnail} framework='react'/>
-                      <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
-                      <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
-                      <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
+                        <Project name="Pokedex" description="A Pokédex web app built with React and the PokéAPI.
+                        It fetches and displays Pokémon data like names, sprites, and details." 
+                        thumbnail={pokedexThumbnail} framework='react'/>
+                      </a>
+                      <a href="https://pomodoro-eight-ruby.vercel.app/" target='_blank'>
+                        <Project name="Pomodoro" description="Work in short bursts to manage your focus and energy" 
+                        thumbnail={pomodoroThumbnail} framework='react'/>
+                      </a>
                       <Project name="Pokedex" description="pending..." thumbnail={pokedexThumbnail}/>
                   </div>
               </div>
@@ -206,7 +205,7 @@ export default function Home() {
           </div>
           
           
-          <span className='text-[#8a8a8a] font-mono'>Or email me at isaiahmiguelflandez@gmail.com</span>
+          <span className='text-[#8a8a8a] font-mono max-sm:text-xs'>Or email me at isaiahmiguelflandez@gmail.com</span>
         </div>
 
       </div>
