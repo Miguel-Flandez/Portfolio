@@ -43,7 +43,7 @@ export default function Home() {
         <nav id='intro' class='absolute top-0' ></nav>
         <div className='flex flex-col gap-[10vh] w-[60vw] '>
             <div id='terminal' className='flex gap-1'>
-              <span className="font-bold text-3xl max-sm:text-2xl text-white font-stack-sans-notch overflow-hidden whitespace-nowrap type-intro">
+              <span className="font-bold text-8xl max-sm:text-2xl text-white font-stack-sans-notch overflow-hidden whitespace-nowrap type-intro leading-tight">
                 
                   &gt; <span className="type-name">M</span>
                   <span className="type-name">i</span>
@@ -61,14 +61,16 @@ export default function Home() {
                 
               </span>
 
-              <span className={`${caret ? 'text-3xl max-sm:text-2xl text-white font-stack-sans-notch' : 'hidden'}`}>|</span>
+              <span className={`${caret ? 'text-8xl max-sm:text-2xl text-white font-stack-sans-notch leading-tight' : 'hidden'}`}>|</span>
             </div>
             
 
             <span  className="text-white font-mono" >
-            <span className="font-bold">Front-End Web Developer </span>
-            specializing in React. <a className={`${terminal ? 'hidden' : '' } text-white font-mono cursor-pointer hover:underline hover:text-[#43d5db]`} onClick={()=>setTerminal(prev=>!prev)} href='#terminal' >Click for more Details</a>
+            <span className="font-bold">Front-End Web Developer&nbsp;</span>
+            focused on React, passionate about building webpages that are both simple and intuitive.
             </span>
+
+            <a className={`${terminal ? 'hidden' : '' } text-white font-mono cursor-pointer hover:underline hover:text-[#43d5db]`} onClick={()=>setTerminal(prev=>!prev)} href='#terminal' >Click for more Details</a>
             
             {terminal && <div className={`${isMax ? 'w-screen h-screen fixed top-0 left-0 z-20':'relative'} bg-black rounded-sm  text-white font-mono max-sm:text-[11px]`}>
               <div className='flex gap-1 absolute right-1 top-1'>
@@ -124,30 +126,30 @@ export default function Home() {
               
 
               <div className='flex md:gap-[8vw] max-sm:gap-[4vw] text-4xl max-sm:text-lg font-mono'>
-                  <div className='flex flex-col items-center'>
-                    <i class="fa-brands fa-html5 hover:text-[#e4522c]"></i>
-                    <span className='text-sm'>HTML</span>
+                  <div className='flex flex-col items-center transition-all hover:-translate-y-1'>
+                    <i class="fa-brands fa-html5 hover:text-[#e4522c] "></i>
+                    <span className='text-sm cursor-default'>HTML</span>
                   </div>
                   
-                  <div className='flex flex-col items-center'>
+                  <div className='flex flex-col items-center transition-all hover:-translate-y-1'>
                     <i class="fa-brands fa-css3-alt hover:text-[#2c52e4]"></i>
-                    <span className='text-sm'>CSS</span>
+                    <span className='text-sm cursor-default'>CSS</span>
                   </div>
 
-                  <div className='flex flex-col items-center hover:translate-y-1'>
+                  <div className='flex flex-col items-center transition-all hover:-translate-y-1'>
                     <i class="fa-brands fa-square-js hover:text-[#f0dc54]"></i>
-                    <span className='text-sm'>JavaScript</span>
+                    <span className='text-sm cursor-default'>JavaScript</span>
                   </div>
                   
-                  <div className='flex flex-col items-center'>
+                  <div className='flex flex-col items-center transition-all hover:-translate-y-1'>
                     <i className="fa-brands fa-react hover:text-[#5dc5dd] hover:animate-pulse"></i>
-                    <span className='text-sm'>React.js</span>
+                    <span className='text-sm cursor-default'>React.js</span>
                   </div>
                   
 
-                  <div className='flex flex-col items-center'>
+                  <div className='flex flex-col items-center transition-all hover:-translate-y-1'>
                     <i class="fa-brands fa-vuejs hover:text-[#46ba86]"></i>
-                    <span className='text-sm'>Vue.js</span>
+                    <span className='text-sm cursor-default'>Vue.js</span>
                   </div>
                   
               </div>
