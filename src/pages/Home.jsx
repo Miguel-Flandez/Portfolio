@@ -134,7 +134,7 @@ export default function Home() {
                     <span className='text-sm'>CSS</span>
                   </div>
 
-                  <div className='flex flex-col items-center'>
+                  <div className='flex flex-col items-center hover:translate-y-1'>
                     <i class="fa-brands fa-square-js hover:text-[#f0dc54]"></i>
                     <span className='text-sm'>JavaScript</span>
                   </div>
@@ -197,15 +197,37 @@ export default function Home() {
         
 
         <nav id="contacts"></nav>
-        <div  className='flex flex-col gap-[2vw]'>
-          <div id="sm-icons" className='flex justify-evenly'>
-            <a target='_blank' href="https://www.facebook.com/miguel.flandez.9659/"><i className="fa-brands fa-facebook text-white hover:text-[#415ca0]"  ></i></a>
-            <a target='_blank' href="https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/"><i className="fa-brands fa-square-linkedin text-white hover:text-[#0882bd]"></i></a>
-            <a target='_blank' href="https://github.com/Miguel-Flandez"><i className="fa-brands fa-github text-white hover:text-[#892c95]"></i></a>
+        <div  className='flex flex-col gap-[10vw] relative'>
+          <div className='flex items-center justify-center gap-1'>
+              <span className='text-white font-bold font-stack-sans-notch text-3xl max-sm:text-2xl'>
+                &gt; <span className="type-contacts">C</span>
+                <span className="type-contacts">o</span>
+                <span className="type-contacts">n</span>
+                <span className="type-contacts">t</span>
+                <span className="type-contacts">a</span>
+                <span className="type-contacts">c</span>
+                <span className="type-contacts">t&nbsp;</span>
+                <span className="type-contacts">M</span>
+                <span className="type-contacts">e</span>
+              </span>
+              
+              
+                <span className={`${caret ? 'text-3xl max-sm:text-2xl text-white font-stack-sans-notch inline-block' : 'invisible'} inline-block w-1`}>|</span>
+              
           </div>
           
+          <div className='flex flex-col gap-[1vw]'>
+            <div id="sm-icons" className='flex justify-evenly'>
+              <a target='_blank' href="https://www.facebook.com/miguel.flandez.9659/"><i className="fa-brands fa-facebook text-white hover:text-[#415ca0]"  ></i></a>
+              <a target='_blank' href="https://www.linkedin.com/in/isaiah-miguel-flandez-ba7260346/"><i className="fa-brands fa-square-linkedin text-white hover:text-[#0882bd]"></i></a>
+              <a target='_blank' href="https://github.com/Miguel-Flandez"><i className="fa-brands fa-github text-white hover:text-[#892c95]"></i></a>
+            </div>
           
-          <span className='text-[#8a8a8a] font-mono max-sm:text-xs'>Or email me at isaiahmiguelflandez@gmail.com</span>
+          
+          <span className='text-[#8a8a8a] font-mono text-xl max-sm:text-xs'>Or email me at isaiahmiguelflandez@gmail.com</span>
+          </div>
+          
+          <span className='text-[#8a8a8a] font-mono text-xl max-sm:text-xs text-center'>Made by Miguel Flandez © 2025</span>
         </div>
 
       </div>
